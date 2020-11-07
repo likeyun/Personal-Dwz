@@ -111,6 +111,9 @@ if (trim(empty($dwzkey))) {
 			echo "<div style='width:150px;margin:50px auto 10px;'><img src='./images/notfound.png' width='150'/></div>";
 		    echo "<p style='text-align:center;'><b>该链接不存在或已被删除</b></p>";
 		}
+		
+		// 更新访问量
+		mysqli_query($conn,"UPDATE dwz_list SET dwz_pageview=dwz_pageview+1 WHERE dwz_key='$dwzkey'");
 	}
 }
 ?>
