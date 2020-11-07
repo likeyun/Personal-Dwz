@@ -18,7 +18,7 @@ v1.0.0
 `mysql 5.7左右均可`<br/>
 `apache服务器`<br/>
 
-因为我这里只做了apache服务器的伪静态，伪静态只适合apc服务器使用。
+因为我这里只做了apache服务器的伪静态，伪静态只适合apache服务器使用。
 
 # 安装步骤
 直接访问install即可<br/>
@@ -27,6 +27,8 @@ http://www.xxx.com<br/>
 你的程序放在服务器根目录下的dwz目录<br/>
 那么启动安装的Url是<br/>
 http://www.xxx.com/dwz/install/<br/>
+
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107151033.png?raw=true"/>
 
 # 伪静态设置
 （1）如果你是安装在服务器根目录，则无需设置伪静态<br/>
@@ -59,4 +61,8 @@ RewriteRule ^(/)?$ dwz/index.php [L]
 后台地址是：http://www.xxx.cn/dwz/index/
 
 # 截图展示
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107145319.png?raw=true"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107145328.png?raw=true"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107145335.png?raw=true"/>
 
+# 如果您喜欢我的项目，可以保持关注，进开发者交流群请加微信：sansure2016
