@@ -1,0 +1,102 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.container .btn{
+	width: 100%;
+	height: 45px;
+}
+
+.container .alert{
+	margin-top: 20px;
+}
+
+.container input{
+	height: 40px;
+}
+
+.container .cp-tips{
+	color: #999;
+}
+
+.container .nav-item .active{
+	background: #333;
+}
+
+.container .nav-item a{
+	text-decoration: none;
+	color: #666;
+}
+
+.container .dwz-list{
+	margin-top:25px;
+}
+
+.container .dwz-list .card .card-footer .admin-link{
+	margin-right: 10px;
+}
+
+.container .dwz-list .card .card-footer .admin-link a{
+	text-decoration: none;
+	color: #666;
+}
+
+.container .dwz-list .card .card-footer .biaoqian{
+	padding:4px 7px;
+	background: #e3e3e3;;
+	font-size: 13px;
+	color: #777;
+	border-radius: 5px;
+}
+
+.container .dwz-list .card .card-footer .status{
+	margin-left: 10px;
+}
+
+.container .dwz-list .card{
+	margin-bottom: 15px;
+}
+
+.container .dwz-list .card .card-footer .biaoqian .oi{
+	color: #666;
+}
+
+.container .dwz-list .card .card-footer .fwl{
+	float: right;
+	font-size: 14px;
+	color: #666;
+}
+
+.container .dwz-list .card .card-footer .fwl .oi{
+	color: #666;
+}
+
+/*分页*/
+.container .pagination li a{
+	text-decoration: none;
+	color: #333;
+	font-size: 14px;
+}
+
+/*创建*/
+.container .form-content{
+	margin-top:25px;
+}
+
+/*域名*/
+.container .yuming-list{
+	margin-top: 25px;
+}
+
+.container .yuming-list ul li a{
+	text-decoration: none;
+	float: right;
+	color: #333;
+}
+
+@media screen and (min-width: 1000px) {
+	.container{
+		width: 800px;
+	}
+}

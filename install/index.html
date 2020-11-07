@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>个人短网址系统安装 - v1.0.0</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<style type="text/css">
+		.container{
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+<div style="width: 300px;margin:100px auto 0;display: none;" id="success"></div>
+<div class="container mt-3">
+  <br/>
+  <br/>
+  <h3>个人短网址系统安装 - v1.0.0</h3>
+  <p>请在php5.6-7.0，Mysql 5.7左右，apache服务器环境下安装</p>
+  <p>安装遇到问题：<a href="http://pic.iask.cn/fimg/591377922798.jpg" target="blank">请点击这里进入交流群，群内解决问题！</a></p>
+  
+  <form role="form" action="##" onsubmit="return false" method="post" id="CreatDb">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库服务器地址</span>
+      </div>
+      <input type="text" class="form-control" placeholder="数据库服务器地址，(宝塔面板可填：localhost)" name="servername">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库登录账号</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请输入数据库账号" name="username">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库登录密码</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请输入数据库密码" name="password">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库名</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请输入数据库名" name="dbname">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">管理员账号</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请设置管理员账号" name="adminuser">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">管理员密码</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请设置管理员密码" name="adminpwd">
+    </div>
+    <button type="button" class="btn btn-dark" onclick="CreatDb();">立即安装</button>
+  </form>
+  <br/>
+  <div class="Result"></div>
+</div>
+
+<!-- Ajax -->
+<script type="text/javascript">
+  // 关闭提示
+  function closesctips(){
+    $(".container .Result").css('display','none');
+  }
+
+  // Ajax创建数据库
+  function CreatDb(){
+      $.ajax({
+          type: "POST",
+          url: "dbinstall.php",
+          data: $('#CreatDb').serialize(),
+          success: function (data) {
+            // 创建成功
+            if (data.code == "100") {
+               $(".container").css('display','none');
+               $("#success").css('display','block');
+               $("#success").html("<h1>安装成功</h1><h3><a href='../index'>前往后台>></a> </h3>");
+            }else{
+               $(".container .Result").css('display','block');
+               $(".container .Result").html('<div class="alert alert-danger"><strong>'+data.msg+'</strong></div>');
+            }
+            // 关闭提示
+            setTimeout('closesctips()', 3000);
+          },
+          error : function(data) {
+            // 创建失败
+             $(".container .Result").css('display','block');
+             $(".container .Result").html('<div class="alert alert-danger"><strong>服务器发生错误</strong></div>');
+             setTimeout('closesctips()', 3000);
+          }
+      });
+  }
+</script>
+</body>
+</html>

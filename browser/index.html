@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>在浏览器打开</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="color-scheme" content="light dark">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		#topyd{
+			width: 100%;
+			margin:0 auto;
+			position: fixed;
+			top: 0;
+		}
+		#topyd img{
+			max-width: 100%;
+		}
+
+		#centeryd{
+			width: 320px;
+			margin:180px auto 0;
+		}
+
+		#centeryd img{
+			max-width: 320px;
+		}
+
+		#bottomyd{
+			width: 320px;
+			margin:30px auto 0;
+		}
+
+		#bottomyd p{
+			text-align: center;
+			font-size: 18px;
+			color: #174ded;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<!-- 顶部引导 -->
+	<div id="topyd"></div>
+
+	<!-- 中部引导 -->
+	<div id="centeryd">
+		<img src="iosydt.jpg">
+	</div>
+
+	<!-- 底部引导 -->
+	<div id="bottomyd">
+		<p>本站不支持在微信打开</p>
+		<p>请在浏览器打开访问</p>
+	</div>
+</body>
+
+<!-- 判断浏览器 -->
+<script>
+	var ua = navigator.userAgent.toLowerCase();
+    var isWeixin = ua.indexOf('micromessenger') != -1;
+    var isAndroid = ua.indexOf('android') != -1;
+    var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+
+    // 判断是不是在微信客户端打开
+	if(isWeixin) {  
+	    // 判断是在Android的微信客户端还是Ios的微信客户端
+	    if (isAndroid) {
+	    	// 是在Android的微信客户端
+	    	$("#topyd").html("<img src='android.jpg'/>");
+	    	$("#centeryd").html("<img src='androidydt.jpg'/>");
+	    }else if (isIos) {
+	    	// 是在Ios的微信客户端
+	    	$("#topyd").html("<img src='ios.jpg'/>");
+	    	$("#centeryd").html("<img src='iosydt.jpg'/>");
+	    }else{
+	    	// 未知设备系统，默认使用安卓的引导方式
+	    	$("#topyd").html("<img src='android.jpg'/>");
+	    	$("#centeryd").html("<img src='androidydt.jpg'/>");
+	    }
+	} else {  
+	    // 不是微信客户端，直接可以访问链接
+	    location.href="http://www.likeyun.cn";
+	}
+</script>
+</html>
