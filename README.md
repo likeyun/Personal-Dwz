@@ -28,8 +28,6 @@ http://www.xxx.com<br/>
 那么启动安装的Url是<br/>
 http://www.xxx.com/dwz/install/<br/>
 
-<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107151033.png?raw=true"/>
-
 # 伪静态设置
 （1）如果你是安装在服务器根目录，则无需设置伪静态<br/>
 （2）如果安装的时候，直接把域名指向指定的子目录作为根目录，则也无需配置伪静态<br/>
@@ -64,5 +62,3 @@ RewriteRule ^(/)?$ dwz/index.php [L]
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107145319.png?raw=true"/>
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107145328.png?raw=true"/>
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201107145335.png?raw=true"/>
-
-# 如果您喜欢我的项目，可以保持关注，进开发者交流群请加微信：sansure2016
