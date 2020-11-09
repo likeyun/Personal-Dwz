@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("Content-type:application/json");
 
 $servername = $_POST["servername"];
