@@ -20,6 +20,12 @@ v1.0.0
 
 因为我这里只做了apache服务器的伪静态，伪静态只适合apache服务器使用。
 
+Nginx规则我还没测试
+可以试试下面这个Nginx规则
+```
+rewrite ^/(.*)$ /index.php?id=$1 last;
+```
+
 # 安装步骤
 直接访问install即可<br/>
 例如你的域名是：<br/>
