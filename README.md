@@ -23,7 +23,11 @@ v1.0.0
 Nginx规则我还没测试
 可以试试下面这个Nginx规则
 ```
-rewrite ^/(.*)$ /index.php?id=$1 last;
+location / {
+  if (!-e $request_filename) {
+    rewrite ^/(.*)$ /index.php?id=$1 last;
+  }
+}
 ```
 
 # 安装步骤
