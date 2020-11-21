@@ -18,10 +18,20 @@ v1.0.0
 `mysql 5.7左右均可`<br/>
 `apache服务器`<br/>
 
-因为我这里只做了apache服务器的伪静态，伪静态只适合apache服务器使用。
+apache伪静态
 
-Nginx规则我还没测试
-可以试试下面这个Nginx规则
+```
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?id=$1 [L]
+</IfModule>
+```
+
+apache伪静态请在短网址系统index.php的同一目录建一个文件名为`.htaccess`的伪静态文件
+
+Nginx伪静态
 ```
 location / {
   if (!-e $request_filename) {
