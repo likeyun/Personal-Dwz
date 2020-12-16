@@ -33,7 +33,11 @@ if (empty(trim($servername))) {
 	$result = array(
 		"msg" => "管理员密码未设置"
 	);
-}else{
+} else if (!is_writable("../dbconfig")) {
+	$result = array(
+		"msg" => "数据库配置目录权限不足"
+	);
+} else {
 	// 创建连接
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// 检测连接
@@ -108,19 +112,13 @@ if (empty(trim($servername))) {
 						$db_name = "'.$dbname.'";
 						?>';
 						//生成数据库配置文件
-						$save_r = file_put_contents('../dbconfig/db_connect_config.php', $mysql_data);
+						file_put_contents('../dbconfig/db_connect_config.php', $mysql_data);
 						
 						// 返回安装结果
-						if (false === $save_r) {
-							$result = array(
-								"msg" => "安装失败，数据库配置目录没有权限"
-							);
-						} else {
-							$result = array(
-								"msg" => "安装成功",
-								"code" => "100"
-							);
-						}
+						$result = array(
+							"msg" => "安装成功",
+							"code" => "100"
+						);
 					}
 				}else{
 					if(strpos($conn->error,'exists') !==false){
