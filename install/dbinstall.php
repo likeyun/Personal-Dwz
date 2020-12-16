@@ -108,13 +108,19 @@ if (empty(trim($servername))) {
 						$db_name = "'.$dbname.'";
 						?>';
 						//生成数据库配置文件
-						file_put_contents('../dbconfig/db_connect_config.php', $mysql_data);
+						$save_r = file_put_contents('../dbconfig/db_connect_config.php', $mysql_data);
 						
 						// 返回安装结果
-						$result = array(
-							"msg" => "安装成功",
-							"code" => "100"
-						);
+						if (false === $save_r) {
+							$result = array(
+								"msg" => "安装失败，数据库配置目录没有权限"
+							);
+						} else {
+							$result = array(
+								"msg" => "安装成功",
+								"code" => "100"
+							);
+						}
 					}
 				}else{
 					if(strpos($conn->error,'exists') !==false){
