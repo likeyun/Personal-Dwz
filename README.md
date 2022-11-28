@@ -1,3 +1,3 @@
-<h1>改版本已经停止维护，我们已经升级了2.0版！<br/>
-请访问：https://github.com/likeyun/liKeYun_Dwz<br/>
-使用2.0版！</h1>
+# 项目停止维护
+该项目停止维护，已被集成至我另一个项目，请移步至【引流宝】项目
+https://github.com/likeyun/liKeYun_Huoma
