@@ -33,7 +33,11 @@ if (empty(trim($servername))) {
 	$result = array(
 		"msg" => "管理员密码未设置"
 	);
-}else{
+} else if (!is_writable("../dbconfig")) {
+	$result = array(
+		"msg" => "数据库配置目录权限不足"
+	);
+} else {
 	// 创建连接
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// 检测连接
